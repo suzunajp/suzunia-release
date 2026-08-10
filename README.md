@@ -3,8 +3,7 @@
 Windows 用の漫画・画像ビューアです。
 **起動やページ送りなど全体の速度**を最優先に設計しています。
 
-zip(cbz),pdf,epubといった書籍ビューア機能をメインとしていますが、
-jxl,avif,webp,png,jpgといった画像ファイルのビューアとしても利用できます。
+**zip(cbz), pdf, epub** といった書籍ビューア機能をメインとしていますが、**jxl,avif,webp,png,jpg,gif,...**といった主要な画像ファイル単体のビューアとしても利用できます。
 
 ![suzunia-picture](suzunia.png)
 
