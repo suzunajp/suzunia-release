@@ -4,18 +4,21 @@
 
 [Back to README](README.en.md)
 
-### 2026.08.13
+### 2026.08.14.
 
 - **Released the macOS version (Apple Silicon).**
+
 - The settings window now opens the Effects tab on **whichever preset the viewer is currently using**, instead of always starting at preset 1.
 - "Monochrome / color detection" on the Effects tab is now **shared by all presets** instead of being stored per preset. It moved to the new **"Shared settings"** group at the bottom of the tab, together with "Setting A / Setting B".
-  - **Because of this change, customized chroma difference / share of colored pixels values reset to the defaults (36 / 2.4%).** Set them again if you had changed them.
+- Added the **"Tone coloring"** false-color pattern (5 colors). Pure black and pure white stay put, so only the midtones (screentones) shift toward a skin tone.
+- Effect preset **9 now defaults to "Tone coloring (pseudo-color)"**, and **"Effect: toggle A / B" now defaults to preset 9 for B** (defaults only — settings you have already saved are untouched).
+
+### 2026.08.13
+
 - Added **English / Japanese UI switching**.
 - Added support for the **TGA** and **PSD** formats.
 - Added the "channel picker" — display only one of the R, G, B, or A channels.
 - Reorganized the false-color patterns and effect presets.
-  - Added the **"Tone coloring"** false-color pattern (5 colors). Pure black and pure white stay put, so only the midtones (screentones) shift toward a skin tone.
-  - Effect preset **9 now defaults to "Tone coloring (pseudo-color)"**, and **"Effect: toggle A / B" now defaults to preset 9 for B** (defaults only — settings you have already saved are untouched).
 - Fixed several bugs around false color, auto level correction, and background color.
 - Tuned the upscaling parameters.
 

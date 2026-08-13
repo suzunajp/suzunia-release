@@ -5,7 +5,7 @@
 A manga / image viewer for **Windows and macOS**.
 It is designed with **overall speed — startup and page turning above all** — as the top priority.
 
-It is primarily a book viewer for **zip (cbz), pdf, and epub**, but it also works as a plain viewer for individual image files such as **JPEG XL (jxl), AVIF, WebP, PNG, JPG, GIF, and more**.
+It is primarily a book viewer for **zip (cbz), pdf, and epub**, but it also works as a plain viewer for individual image files such as **JPEG XL, AVIF, WebP, PNG, JPG, GIF, and more**.
 
 ![suzunia-picture](suzunia.png)
 
@@ -22,8 +22,7 @@ The macOS zip and dmg have identical contents. **The zip is recommended** — th
 security confirmation described under [Installation](#macos) takes one round with the zip
 and two with the dmg.
 
-**Latest update (2026.08.13)** — released the macOS version (Apple Silicon), added English / Japanese UI switching, added TGA and PSD support, added the channel picker.
-Earlier entries are in the [Changelog](CHANGELOG.en.md).
+**Latest update** — [Changelog](CHANGELOG.en.md).
 
 ## Requirements
 

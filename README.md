@@ -5,7 +5,7 @@
 **Windows / macOS** 用の漫画・画像ビューアです。
 **起動やページ送りなど全体の速度**を最優先に設計しています。
 
-**zip(cbz), pdf, epub** といった書籍ビューア機能をメインとしていますが、 **jpeg xl(jxl),avif,webp,png,jpg,gif,...** といった主要な画像ファイル単体のビューアとしても利用できます。
+**zip(cbz), pdf, epub** といった書籍ビューア機能をメインとしていますが、 **JPEG XL, AVIF, WebP, PNG, JPG, GIF,...** といった主要な画像ファイル単体のビューアとしても利用できます。
 
 ![suzunia-picture](suzunia.png)
 
@@ -21,8 +21,7 @@
 macOS 版の zip と dmg は中身が同じです。**zip をお勧めします** — 下の
 [インストール](#macos)で説明する初回の確認手順が、zip なら 1 回、dmg なら 2 回で済みます。
 
-**最新の更新 (2026.08.13.)** — Mac版 (Apple Silicon) を公開、英語/日本語の切り替えに対応、TGA / PSD フォーマットに対応、チャンネルピッカーを追加。
-過去のぶんは [更新履歴 (CHANGELOG)](CHANGELOG.md) にあります。
+**最新の更新** — [更新履歴 (CHANGELOG)](CHANGELOG.md)
 
 ## 動作環境
 
