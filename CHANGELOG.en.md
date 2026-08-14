@@ -4,6 +4,14 @@
 
 [Back to README](README.en.md)
 
+### 2026.08.15.
+
+- **Faster page turns (look-ahead pre-rendering).** The next spread is now prepared in the background — resampled to display size and sharpened — so turning the page becomes just a transfer to the screen. The larger the window or the page, the bigger the win (measured: 5.9 ms → 2.4 ms per turn at 4K, two-page view). The picture is exactly the same as before. It can be turned off with "Prepare the next page's display image ahead of time" on the Performance tab of the settings app (on by default).
+- Added **"Trade drawing quality for speed while page turns are rapid-fired"** (off by default). Only while page turns keep coming faster than the chosen threshold (slider: 0.05–0.5 s, 0.2 s by default) — such as holding a key down — pages are drawn with lighter interpolation and without the unsharp mask; once you stop, the usual quality is redrawn.
+- The title bar is no longer redrawn on every single page turn, shaving a little off each turn (the text catches up within 0.05 s).
+- Added **"Forward / back by percentage"** to page navigation. It moves by a share of the total page count, so the same command jumps the same amount of *progress* no matter how long the book is. The share is set with a **slider (1–100%, 5% by default)** under "Page step" on the Display tab of the settings app. It is also on the Move menu (assign a key on the Input tab).
+- Added the **"Confirm before sending to the Recycle Bin"** setting (off by default). Until now only direct deletion asked for confirmation.
+
 ### 2026.08.14.
 
 - **Released the macOS version (Apple Silicon).**
