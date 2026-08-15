@@ -11,6 +11,11 @@
 - The title bar is no longer redrawn on every single page turn, shaving a little off each turn (the text catches up within 0.05 s).
 - Added **"Forward / back by percentage"** to page navigation. It moves by a share of the total page count, so the same command jumps the same amount of *progress* no matter how long the book is. The share is set with a **slider (1–100%, 5% by default)** under "Page step" on the Display tab of the settings app. It is also on the Move menu (assign a key on the Input tab).
 - Added the **"Confirm before sending to the Recycle Bin"** setting (off by default). Until now only direct deletion asked for confirmation.
+- **Image files and folders can now be shown two pages at a time.** Opening an image file or a folder directly used to be locked to one-page view; you can now **switch to two-page view** from the Page menu or a key assignment. Turning on **"Use two-page view for image files and folders too"** — added to the Behavior tab of the settings app (off by default) — makes them open that way from the start, following "Page layout" on the Display tab. Archives and PDFs are unaffected.
+- Added the **"Bring suzunia to the front when a file is dropped"** setting (on by default). Dropping a file onto the window brings suzunia to the front; with it off the book still opens, but whatever you dragged from (Explorer, for example) stays in front. Opening by file association, and the hand-off used when multiple instances are not allowed, come to the front regardless of this setting.
+- **The window buttons are now shown in full screen too.** Until now, revealing the title bar by moving the cursor to the top of the screen gave you no minimize or close button. The middle button acts as **leave full screen**.
+- The page slider is now **one step thicker and brighter**.
+- **Fixed the error beep on "Alt + key" assignments such as Alt+1.** The assigned command was actually running, but Windows then decided the combination was not on any menu and played its error sound. Assigning a menu's first letter (Alt+F, for example) also **opened that menu on top of running the command**; that is fixed too (in exchange, such a menu can no longer be opened with Alt — clicking still works).
 
 ### 2026.08.14.
 
