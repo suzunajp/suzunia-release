@@ -4,6 +4,10 @@
 
 [Back to README](README.en.md)
 
+### 2026.08.17.
+
+- bug fix.
+
 ### 2026.08.16.
 
 - Added **"Copy file name to clipboard"** to the File menu. It puts one of four strings on the clipboard: the current file name, its full path, the current folder name, or the folder's full path. "The current file" here means the same file as "Show in Explorer": the archive itself for archives, PDF and EPUB, or the page being displayed when an image file or an image folder is open.
