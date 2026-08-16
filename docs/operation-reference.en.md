@@ -105,7 +105,8 @@ Any command can be assigned to each of these 18 actions.
 
 ## Command list
 
-There are **134 assignable commands**. They appear in this order in the settings dropdown.
+There are **151 assignable commands** (not counting "(unassigned)"). They appear in this
+order in the settings dropdown.
 
 ### Page navigation
 
@@ -228,6 +229,18 @@ This is a temporary setting that is not written to the settings file (reopening 
 | Delete file | Trash or permanent deletion, selectable in the settings |
 | Reload file | |
 | Show in Explorer | Reveals the file in Finder on macOS |
+| Copy current file name | Puts just the file name on the clipboard (as text) |
+| Copy current file full path | |
+| Copy current folder name | Puts just the folder name on the clipboard (as text) |
+| Copy current folder full path | |
+| Open install folder | Opens the folder the suzunia executable sits in |
+| Open settings folder | Opens the folder `suzunia.json` sits in (see [the settings file](#editing-the-settings-file-directly) below) |
+| Open with another app 1–9 | Hands the file to a configured external program (**Windows only**; see [Open with another app](#open-with-another-app) below) |
+
+"The current file" is the same file as "Show in Explorer": **the archive itself for
+archives, PDF and EPUB**, and **the page being displayed when an image file or an image
+folder is open**. "The current folder" is the folder that file sits in.
+On the menu these four are grouped under File → "Copy file name to clipboard".
 
 ### Automatic page turning
 
@@ -259,17 +272,18 @@ There are six menu headings, and the **layout and order are the same on Windows 
 
 | Heading | Main items |
 |---|---|
-| File | Open / Reload file / Recent files / Save bookmark / Load bookmark / Copy page / Save page / Show in Explorer (Finder) / About / Exit |
+| File | Open / Reload file / Recent files / Save bookmark / Load bookmark / Copy page / Copy file name to clipboard / Save page / Delete file / Show in Explorer (Finder) / Open with another app (Windows only) / Open install folder / Open settings folder / About / Exit |
 | View | Display size / Background / Channel picker / Apply ICC profile / Full screen / Info panel / Page slider / Always on top |
 | Effects | Choose one of ten effect presets (modified ones are marked "(modified)") |
 | Navigate | Next/previous page / by one page / by step A and B / first and last / go to page / random / previous, next, and random book / start auto page turn / behavior at end of book |
 | Page | Single and two pages / split wide pages / the various single-view options / size matching / auto-crop margins / reading direction / sort order / rotation / read subfolders / reset page settings |
 | Options | Settings / Reload settings |
 
-Only three things differ on macOS:
+Only four things differ on macOS:
 
 - An application menu comes first, and "About" and "Quit" live there
 - There is no page slider item
+- There is no "Open with another app" (Finder already has "Open With")
 - "Maximize" and "Minimize" are at the end of the View menu (they are window buttons on Windows)
 
 **Items in the Page menu are temporary changes that last only while that book is open.**
@@ -278,8 +292,8 @@ Reopening the book restores the values from the settings file, and then any
 
 ## Settings window
 
-There are 8 tabs on Windows and 7 on macOS (which has no shell integration tab).
-The order of items is the same on both.
+There are 9 tabs on Windows and 7 on macOS (which has neither the other-apps tab nor
+shell integration). The order of items is the same on both.
 
 | Tab | Groups |
 |---|---|
@@ -287,6 +301,7 @@ The order of items is the same on both.
 | Effects | Presets / resize filter / unsharp mask / auto levels / pseudo-color / upscaling (Windows only) / shared settings |
 | General | Startup / auto page turning / page navigation / image folders / archives / file operations / page slider (Windows only) |
 | Input | Key assignments / mouse assignments |
+| Other apps | The nine "Open with another app" entries (**Windows only**) |
 | Performance | Presets / prefetch and cache / PDF (Windows only) / EPUB (Windows only) / archives (rar / 7z) |
 | History | History / sound effects / logging |
 | Bookmarks | The contents of the 16 slots |
@@ -304,6 +319,30 @@ The order of items is the same on both.
     how a page should be shown, so there is a single pair for all presets
 - Raising **prefetch and cache** makes page turning faster but uses more memory. Be careful
   with large-format books (100 MB or more per page).
+
+## Open with another app
+
+**Windows only.** Hands the file you are viewing to an image editor or any other program.
+Up to **nine** entries can be registered on the Other apps tab, each with these four fields.
+
+| Field | Meaning |
+|---|---|
+| Menu name | The name shown under File → "Open with another app". Empty by default |
+| Full path to the executable | Pick it with "Choose…". Besides .exe, a .bat or a shortcut (.lnk) works. Empty by default |
+| Argument | See the table below. "Current file path" by default |
+| After launch | Do nothing (default) / Minimize / Maximize / Exit |
+
+| Argument | What is passed |
+|---|---|
+| Current file path | The same file as "Show in Explorer" (the archive itself for archives, the page being displayed for image folders) |
+| Current folder path | The folder that file sits in |
+| Copy the image to the clipboard | Puts the page being displayed on the clipboard at full size, then starts the app with no argument (paste it in the app yourself) |
+| Send nothing | Starts the app with no argument |
+
+- **Only entries that have both a menu name and an executable appear in the menu.**
+  With none registered, the submenu shows just "(not configured)".
+- They can be bound to keys and mouse actions as "Open with another app 1" – "9"
+  (the number is the row number on the Other apps tab).
 
 ## Per-book options via the filename
 

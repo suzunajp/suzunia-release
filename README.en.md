@@ -229,10 +229,12 @@ meaning of each setting, see the **[Operation Reference](docs/operation-referenc
 - **History** — up to 50 entries. "Recent files" reopens at the page you left off
 - **Bookmarks** — 16 slots
 - **Automatic page turning** — slideshow, with two configurable speeds
-- **Customizable input** — assign 130+ commands freely to keys and mouse actions (click / double-click / long press / wheel / wheel-while-held / X buttons / mouse gestures)
+- **Customizable input** — assign 150+ commands freely to keys and mouse actions (click / double-click / long press / wheel / wheel-while-held / X buttons / mouse gestures)
 - **UI language** — Japanese / English
 - **Sound effects** — play a .wav when page or book navigation stops at an edge (off by default)
-- **Other** — single-instance enforcement (multiple instances can be allowed), window position and full-screen state restored, reveal in Explorer / Finder, file deletion (trash or direct), reload the settings file
+- **Open with another app** — hand the file you are viewing to an external program. Up to nine entries, each with its own argument (file path / folder path / image on the clipboard / nothing) and what suzunia does afterwards (**Windows only**)
+- **Copy the file name** — put the current file name, its full path, the folder name or the folder's full path on the clipboard
+- **Other** — single-instance enforcement (multiple instances can be allowed), window position and full-screen state restored, reveal in Explorer / Finder, open the install folder or the settings folder, file deletion (trash or direct), reload the settings file
 
 ### Not available on macOS
 
@@ -245,6 +247,7 @@ These are either out of scope for the port or absent for platform reasons.
 | Custom-drawn title bar | macOS uses the standard system title bar |
 | Page slider | Same reason as above |
 | Shell integration tab (context menu, file associations) | Not needed — Finder handles this from the `.app` bundle automatically |
+| Open with another app (Other apps tab) | Out of scope — Finder already has "Open With" |
 | Archives nested inside archives | Not verified |
 
 Everything else matches the Windows version, down to the menu layout and the order of items in the settings window.

@@ -4,6 +4,16 @@
 
 [Back to README](README.en.md)
 
+### 2026.08.16.
+
+- Added **"Copy file name to clipboard"** to the File menu. It puts one of four strings on the clipboard: the current file name, its full path, the current folder name, or the folder's full path. "The current file" here means the same file as "Show in Explorer": the archive itself for archives, PDF and EPUB, or the page being displayed when an image file or an image folder is open.
+- Added **"Open install folder"** and **"Open settings folder"** to the File menu. The settings folder is normally the folder the exe sits in on Windows, but becomes `%APPDATA%\suzunia` when suzunia is installed somewhere it cannot write (under Program Files, for example); on macOS it is `~/Library/Application Support/suzunia`.
+- Added **"Open with another app"** to the File menu (**Windows only**). It hands the file you are viewing to an image editor or any other program. Up to nine entries can be registered on the new **Other apps tab** of the settings app, each with a menu name, the full path to the executable, an argument and what suzunia should do after launching.
+  - **Argument** — "Current file path" (default) / "Current folder path" / "Copy the image to the clipboard" / "Send nothing". The clipboard option puts the page being displayed on the clipboard at full size and then starts the app with no argument (paste it in the app yourself).
+  - **After launch** — "Do nothing" (default) / "Minimize" / "Maximize" / "Exit".
+  - Only entries that have **both a menu name and an executable** appear in the menu. Besides .exe, the executable may be a .bat or a shortcut (.lnk).
+- All of the above can also be **assigned to keys and mouse actions** (Input tab of the settings app). The command list grew by 15, to 151.
+
 ### 2026.08.15.
 
 - **Faster page turns (look-ahead pre-rendering).** The next spread is now prepared in the background — resampled to display size and sharpened — so turning the page becomes just a transfer to the screen. The larger the window or the page, the bigger the win (measured: 5.9 ms → 2.4 ms per turn at 4K, two-page view). The picture is exactly the same as before. It can be turned off with "Prepare the next page's display image ahead of time" on the Performance tab of the settings app (on by default).
