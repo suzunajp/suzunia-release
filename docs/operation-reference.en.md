@@ -92,7 +92,7 @@ so the two can be told apart.
 
 ## Assignable mouse actions
 
-Any command can be assigned to each of these 18 actions.
+Any command can be assigned to any of these actions.
 
 | Group | Actions |
 |---|---|
@@ -101,7 +101,10 @@ Any command can be assigned to each of these 18 actions.
 | Wheel | up / down |
 | Wheel while held | left button + up / down, right button + up / down |
 | Long press | left / right |
-| Right-drag gesture | up / down / left / right |
+| Right-drag gesture | any combination of up / down / left / right, up to 3 strokes (`↑`, `↑↓`, `←↓→`, ... — 84 in total) |
+
+For a right-drag gesture, hold the right button, draw the strokes in sequence,
+and the command runs **when you release the button**.
 
 ## Command list
 
@@ -368,9 +371,13 @@ You may edit `suzunia.json` by hand. Apply the changes with "Reload settings"
 ```json
 {
   "keys":  { "Ctrl+Right": "NextPageSingle", "F11": "ToggleFullScreen" },
-  "mouse": { "LeftClick": "NextPage", "RightGestureUp": "FirstPage" }
+  "mouse": { "LeftClick": "NextPage", "RightGestureUp": "FirstPage",
+             "RightGestureUpDown": "LastPage" }
 }
 ```
+
+A mouse-gesture key is `RightGesture` followed by up to 3 directions
+(`Up` / `Down` / `Left` / `Right`) in drawing order, e.g. `RightGestureLeftDownRight`.
 
 The value is the internal command name from the [command list](#command-list), not the label
 shown in the Input tab. **A misspelled line is silently ignored**, so if an assignment does

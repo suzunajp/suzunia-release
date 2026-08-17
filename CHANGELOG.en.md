@@ -4,9 +4,21 @@
 
 [Back to README](README.en.md)
 
-### 2026.08.17.
+### 2026.08.18.
 
-- bug fix.
+- Mouse gestures (right-click + direction) now take **any combination of up / down / left / right, up to 3 strokes** (`↑`, `↑↓`, `←↓→`, ... — 84 in total). Hold the right button, draw the strokes in sequence, and the assigned command runs **when you release the button**.
+  - The Input tab of the settings app has a new **"Mouse gestures"** section: pick up to three directions and press "Add" to create a sequence, then assign a command to each row or remove it. **Existing single-stroke assignments carry over as they are.**
+  - Drawing four or more strokes is treated as a slip of the hand: nothing runs, and it does not fall back to a right click either.
+  - When editing `suzunia.json` by hand, the key is `RightGesture` followed by the directions (`Up` / `Down` / `Left` / `Right`) in drawing order, e.g. `RightGestureUpDown`.
+  - As part of this, single-stroke gestures now fire **when the button is released** instead of the moment the stroke is drawn (so that pairs like `↑` and `↑↓` can coexist).
+- The Effects menu is now split into two sections, **"Presets"** and **"Quick customization"**, each marked with a greyed-out heading. The lower section changes an effect **on the spot without rewriting the preset**: Interpolation / Interpolate in linear light / Unsharp mask / Auto levels / Pseudo-color / Upscaling (Upscaling is **Windows only**).
+  - **Interpolation** — pick one of the seven filters (in the same order as "Cycle interpolation", most used first).
+  - **Pseudo-color** — "none" plus "Preset colors" plus the **32 built-in patterns**. The same lineup as "Pattern" on the Effects tab of the settings app; picking one replaces only the colors (the stops), leaving the strength as the preset has it. The check mark is decided by the stop values, so a preset whose stops were hand-edited in the settings app shows the mark on "Preset colors".
+  - **Upscaling** — Off / Line-art restore / Line-art restore CNN. The strength and the "only above this scale" threshold belong to the settings app, so a preset with strength 0 stays unaffected whichever method you pick.
+  - While a quick customization is in effect, the preset name shows **" (modified)"** in the menu and in the info panel. Selecting a preset again (the same number is fine), reloading the settings, or **"Discard quick customization"** at the bottom of the menu puts everything back. **It survives opening another book.** Make a preset in the settings app for combinations you want to keep.
+- All of the above can also be **assigned to keys and mouse actions** (Input tab of the settings app). The command list grew by 12, to 163. **Only the 32 pseudo-color patterns are menu-only**, as they would swamp the list (use the existing "Toggle pseudo-color" to switch it on and off from a key).
+- The page slider now **shows its click area** (**Windows only**, on by default). When the cursor enters the area where a click / drag jumps to a page (the slider strip at the bottom of the title bar plus the hit area over the top of the image below it), the whole area appears as a translucent slider with the same track / fill split. It makes it obvious that a click will now turn pages, so clicks meant for the image are no longer taken by surprise. Turn it off with **"Show the click area when hovering over it"** on the General tab of the settings app.
+- While **dragging the page slider, the cursor is now confined to the click area**. Moving left and right with the button held still follows to that page, as before; releasing the button (or leaving the window with Alt+Tab and the like) lifts the confinement.
 
 ### 2026.08.16.
 
