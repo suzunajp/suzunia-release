@@ -108,7 +108,7 @@ and the command runs **when you release the button**.
 
 ## Command list
 
-There are **151 assignable commands** (not counting "(unassigned)"). They appear in this
+There are **173 assignable commands** (not counting "(unassigned)"). They appear in this
 order in the settings dropdown.
 
 ### Page navigation
@@ -168,6 +168,23 @@ order in the settings dropdown.
 | Background: match image | Samples the color from the page border (default) |
 | Background: checkerboard | For inspecting transparent images |
 
+### Zoom and scrolling
+
+| Command | Notes |
+|---|---|
+| Toggle zoom | Enlarges to the configured factor around the cursor; again to return to the previous view |
+| Zoom in / Zoom out | Changes the factor one "step factor" (a setting) at a time, keeping the point under the cursor in place |
+| Reset zoom | Restores the pre-zoom view, including its pan position |
+| Scroll up / down / left / right | Moves the view by the "scroll amount" (a setting) toward the overflowing side; stops at the edge |
+| Scroll down / next page | Turns to the next page once the bottom is reached; the new page opens at the top |
+| Scroll up / previous page | Turns back once the top is reached; the previous page opens at the bottom |
+
+While zoomed or overflowing, dragging with the left button (panning) also moves the view.
+Bind "Scroll down / next page" to wheel-down and pages taller than the window scroll
+under the wheel, advancing once you have seen the bottom. By default a page move lands
+on the middle of the new page; the "align the view to the reading start on every page
+move" setting makes it always open at the reading start instead.
+
 ### Page processing and effects
 
 | Command | Notes |
@@ -181,7 +198,6 @@ order in the settings dropdown.
 | Toggle auto levels | Finds the black and white points per page and stretches the range |
 | Toggle pseudo-color | Paints monochrome pages in the colors you configure |
 | Toggle ICC profile handling | |
-| Toggle zoom | |
 | Effect preset 1–9, 0 | Ten complete sets of effect settings |
 | Effect: switch between A and B | |
 | Cycle effect presets | |
@@ -222,6 +238,7 @@ This is a temporary setting that is not written to the settings file (reopening 
 | Always on top | |
 | Toggle info panel | Shows book / page / image / display / EXIF information in a separate window |
 | Toggle page slider | **Windows only** (the macOS version has no page slider) |
+| Toggle scroll bars | Overlays position markers along the right and bottom edges while the image overflows |
 
 ### File operations
 
@@ -276,7 +293,7 @@ There are six menu headings, and the **layout and order are the same on Windows 
 | Heading | Main items |
 |---|---|
 | File | Open / Reload file / Recent files / Save bookmark / Load bookmark / Copy page / Copy file name to clipboard / Save page / Delete file / Show in Explorer (Finder) / Open with another app (Windows only) / Open install folder / Open settings folder / About / Exit |
-| View | Display size / Background / Channel picker / Apply ICC profile / Full screen / Info panel / Page slider / Always on top |
+| View | Display size / Background / Channel picker / Apply ICC profile / Zoom / Full screen / Info panel / Page slider / Scroll bars / Always on top |
 | Effects | Choose one of ten effect presets (modified ones are marked "(modified)") |
 | Navigate | Next/previous page / by one page / by step A and B / first and last / go to page / random / previous, next, and random book / start auto page turn / behavior at end of book |
 | Page | Single and two pages / split wide pages / the various single-view options / size matching / auto-crop margins / reading direction / sort order / rotation / read subfolders / reset page settings |
@@ -300,7 +317,7 @@ shell integration). The order of items is the same on both.
 
 | Tab | Groups |
 |---|---|
-| View | Pages / display size / background / color management / zoom / pan / page step sizes |
+| View | Pages / display size / background / color management / zoom / pan / scrolling / page step sizes |
 | Effects | Presets / resize filter / unsharp mask / auto levels / pseudo-color / upscaling (Windows only) / shared settings |
 | General | Startup / auto page turning / page navigation / image folders / archives / file operations / page slider (Windows only) |
 | Input | Key assignments / mouse assignments |

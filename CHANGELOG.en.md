@@ -4,6 +4,18 @@
 
 [Back to README](README.en.md)
 
+### 2026.08.31.
+
+- **Added scrolling.** When the image overflows the window, keys and the mouse wheel can now move the view. There are six commands, assigned on the Input tab of the settings app.
+  - **"Scroll up / down / left / right"** — moves a fixed amount toward the overflowing side, and stops at the edge (it never turns the page).
+  - **"Scroll down / next page"** and **"Scroll up / previous page"** — scroll first, and turn the page once the edge is reached. The new page opens where the reading flow continues: **at the top when moving forward, at the bottom when moving back.** Bind these to the wheel and pages taller than the window scroll under the wheel, advancing to the next page once you have seen the bottom.
+  - The distance of one step is the new **"Scroll amount"** on the Display tab of the settings app (a share of the window's edge, 5–100%, 25% by default).
+- Added **"Align the view to the reading start on every page move (top edge when moving forward)"** (off by default). With overflowing layouts such as "fit to width", turning the page used to land on the middle of the new page; with this on, it always opens at the reading start (top edge plus the leading side for the reading direction when moving forward, bottom edge when moving back). Pages that fit the window behave as before.
+- Added **scroll bars** (off by default). Turn them on from "Scroll bars" on the View menu, or on the Display tab of the settings app: a position marker (thumb) is overlaid along the right and bottom edges, only on the axes that overflow. It shows at a glance where panning, scrolling or zooming has taken you.
+- Added **stepwise zoom ("Zoom in", "Zoom out", "Reset zoom")**. The view is enlarged or reduced one step at a time — by the new **"Step factor"** (Display tab of the settings app, 1.1–4.0, 1.25 by default) — keeping the point under the cursor in place. "Reset zoom", like switching "Toggle zoom" off, restores the pre-zoom view including its pan position. The View menu gained a **Zoom submenu** (toggle / in / out / reset).
+- All of the above can also be **assigned to keys and mouse actions** (Input tab of the settings app). The command list grew by 10, to **173**.
+- **With default settings and assignments, nothing behaves differently from before.**
+
 ### 2026.08.18.
 
 - Mouse gestures (right-click + direction) now take **any combination of up / down / left / right, up to 3 strokes** (`↑`, `↑↓`, `←↓→`, ... — 84 in total). Hold the right button, draw the strokes in sequence, and the assigned command runs **when you release the button**.

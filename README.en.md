@@ -220,7 +220,7 @@ meaning of each setting, see the **[Operation Reference](docs/operation-referenc
 - **Effect presets** — ten complete sets of the image-quality settings. Switch with a single key (or the Effects menu). By default 1-4 are image quality, 5-9 are pseudo-color samples and 0 is for pixel art (nearest neighbor, no unsharp mask)
 - **Effects** — auto level correction, false color, auto-crop margins, splitting wide pages, rotation in 90-degree steps, channel picker (show only one of R/G/B/A)
 - **Color management** — ICC profile support
-- **Pan and zoom** — drag with the left button to slide the view, zoom to a configurable factor centered on the cursor
+- **Pan, zoom and scrolling** — drag with the left button to slide the view; zoom centered on the cursor (a fixed-factor toggle plus stepwise zoom in/out); scrolling on keys or the wheel, including combined commands that turn the page once the edge is reached; optional scroll bars while the image overflows
 - **Background** — solid color / match the image / checkerboard (for transparent images)
 - **Page ordering** — filename / date / size / archive entry order (each ascending or descending), random
 - **Window** — full screen, always on top
