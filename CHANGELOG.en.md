@@ -4,6 +4,19 @@
 
 [Back to README](README.en.md)
 
+### 2026.09.03.
+
+- **Added the floating display.** A short message appears over the image on a translucent strip and fades away after a moment. There are three kinds, and the new **Floating display tab** of the settings app switches the feature and each kind on and off (all on by default).
+  - **The opened file name** — shown whenever a book is opened (at startup, on drop, when moving to the previous or next book, and so on). It takes one of the same four forms as "Copy file name to clipboard" on the File menu — file name, full file path, folder name, full folder path — chosen separately for **archives** and for **image files / folders** (defaults: "file name" for archives, "full folder path" for image files and folders; for the latter, "file name" means the image being displayed when the book opens).
+  - **Warnings** — when a move stops at an edge, such as "Last page" when you try to go past the last page or "No next book" when there is no neighboring book. Errors that used to appear only in the title bar (failed to open, could not delete, and so on) are shown with the same wording.
+  - **Mouse-gesture progress** — while you hold the right button and draw, the arrows drawn so far and the command that will run if you release now stay on screen, like "→  Previous page", updating with every stroke; a sequence with no assignment reads "(not assigned)". When you release and the command runs, **"[done]"** is appended and the message stays for the display duration; if nothing runs it disappears.
+  - The Floating display tab sets the position (a share of the image area from its top-left corner, X / Y 0–100%, 2% by default), the font and size (system default font, 14 pt), the text color (white), the background color and opacity (black, 75%), the duration (0.5–10 s, 2 s by default) and the **fade-out time** — how long the text and background take to fade together once the duration has passed (0–2 s, 0.3 s by default; 0 makes it vanish at once).
+  - **Speed is unaffected.** Nothing is added to page turns while no message is showing, and the font is loaded in the background the first time a message appears (so the very first one right after startup may show up slightly late).
+
+- **Fixed the settings app window overflowing the screen on short monitors** (**Windows only**).
+  - The window now shrinks on opening so it fits the monitor's work area (the space left over by the taskbar). The default height used to be taller than 1366×768-class monitors, which could push the OK / Cancel / Apply row at the bottom off the screen. Restoring the previous size on opening is kept within the work area the same way.
+  - On the Input tab, a short window used to cut off the "Restore defaults" button to the right of "Key assignments", leaving it out of reach. Each section now keeps a usable minimum height, and the tab shows a scroll bar when it still does not fit.
+
 ### 2026.08.31.
 
 - **Added scrolling.** When the image overflows the window, keys and the mouse wheel can now move the view. There are six commands, assigned on the Input tab of the settings app.
