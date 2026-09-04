@@ -4,6 +4,24 @@
 
 [Back to README](README.en.md)
 
+### 2026.09.05.
+
+- **"Next book" and "Previous book" now work for image folders too.** The destination is the neighboring folder at the same level, sorted in the same natural order as archives ("1 / 2 / … / 10"). While an archive is open you still move only among archive files; folders and archives are never counted together. Hidden folders are skipped.
+  - **Moving to a folder that has no images leaves you in that folder.** The title bar shows "full path of the folder (no images)" and the picture goes away, but the folder becomes your current location, so you can keep going to the next or previous folder from there. Previously the viewer stayed on the earlier book, so an empty folder in the middle of a series was a dead end. Dropping an empty folder, or choosing one in the Open dialog, puts you in the same state (an empty archive still just reports the error and keeps showing the current book).
+
+- **Fixed folders with no images directly inside them opening as "no images".** Even with "Read subfolders" turned on in the settings app's Display tab, opening a series folder (no images of its own, just one folder per chapter) gave up without reading the subfolders. This only happened when the folder was opened together with startup, because the folder was scanned before the settings had been read; the viewer now waits for the settings and rescans with subfolders before giving up.
+
+- **The settings app now runs as a single instance** (**Windows only**). Launching a second copy brings the existing settings window to the front and exits. The "always on top" flag used when the viewer is set to stay on top, and the requested tab, are handed over to that window. This prevents two windows from editing the same settings file separately, where the one saved last would silently overwrite the other's changes.
+
+- **Reworked prefetching for heavy pages.** Books whose pages take a long time to decode (such as 3000×5000 lossless scans) now have the next page ready sooner.
+  - Prefetching used to decode the upcoming pages side by side, one thread per page across all workers. That is fastest for light pages, but in a book where a single page takes a second or more, **the adjacent page was finished no earlier than the page eight positions ahead**, so turning the page hit an "decode it now" wait. The viewer now estimates each page's cost from its file size and, only for pages that look heavy, decodes them one after another with **half the workers' threads × 2 decoders**, nearest page first. Total CPU use (the number of threads) is unchanged.
+  - Measured on large lossless jxl, two-page display, turning every 0.5–1 s: the next spread is ready in **0.7 s instead of 1.9 s** (Apple M4). When a page turn still outruns the prefetch, the viewer now waits for the partly decoded page instead of starting over, cutting that wait from **215 ms to 130 ms** (Ryzen 9 9900X) / **387 ms to 161 ms** (M4). Page turns that were already prefetched, and light books in general, are as fast as before.
+  - Added **"Heavy page threshold (ms)"** to the Performance tab of the settings app (default 200). A page estimated to take longer than this on a single thread counts as heavy. **Set it to 0 for the previous behavior.**
+  - The System section of the info panel gained a **"Heavy tier"** line showing the decoder configuration in use and the measured value the estimate is based on.
+  - The Image section of the info panel gained a **"Decode"** line: how long the page being shown took to decode, who decoded it (prefetch / prefetch, heavy tier / on demand, meaning the prefetch did not make it and the page was decoded when you turned to it), and how many threads were used. A run of "on demand" lines in a heavy book is a hint to revisit the prefetch settings. The time includes extracting the page from the archive.
+  - Applies to jxl and avif (webp and the OS decoders cannot decode a single page in parallel).
+- The diagnostic `--log <path>` option is now accepted by a normal launch and by `--selftest`, not only by `--bench` / `--shot`.
+
 ### 2026.09.03.
 
 - **Added the floating display.** A short message appears over the image on a translucent strip and fades away after a moment. There are three kinds, and the new **Floating display tab** of the settings app switches the feature and each kind on and off (all on by default).
