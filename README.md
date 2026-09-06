@@ -7,7 +7,7 @@
 
 **zip(cbz), pdf, epub** といった書籍ビューア機能をメインとしていますが、 **JPEG XL, AVIF, WebP, PNG, JPG, GIF,...** といった主要な画像ファイル単体のビューアとしても利用できます。
 
-![suzunia-picture](suzunia.png)
+![suzunia-picture](suzunia2.png)
 
 ## ダウンロード
 
