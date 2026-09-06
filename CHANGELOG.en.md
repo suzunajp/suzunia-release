@@ -4,6 +4,15 @@
 
 [Back to README](README.en.md)
 
+### 2026.09.06.
+
+- **Added the control bar along the bottom of the window** (on by default, **Windows and macOS**). One row holds, from left to right, a page **slider**, the **page number** ("12 / 196", or "12-13 / 196" in two-page view) and four buttons: **first page / previous page / next page / last page**. Click or drag the slider to jump to a page; the buttons behave exactly like the key assignments (at the ends of a book you still get the sound, the flash and the floating message, and the "at the end of the book" setting is honored). The look is a simple Material-style design; the icons and the thumb are anti-aliased.
+  - **In full screen the bar stays hidden and slides over the image only while the cursor is at the bottom edge of the screen** (the same behavior as the title bar). In a normal window the image area shrinks by the bar's height (40).
+  - Accordingly, how the page bar is shown is now a **three-way choice: none / control bar / page slider.** Pick it from **"Page bar"** on the View menu or the item of the same name on the Display tab of the settings app. "Page slider" is the previous style — a thin line along the bottom edge of the title bar (**Windows only**) — and "none" hides both. If you had "Show the page slider" turned off before, it carries over as "none".
+  - The macOS build had no way to show or change the reading position until now; the control bar takes that role. Its View menu offers "none / control bar".
+  - The command list grew by 3, to **176** ("Page bar: none / control bar / title bar slider"). The old "Toggle page slider" is now **"Toggle page bar"** and switches between hidden and whichever style was in use before hiding.
+  - **Speed is unaffected.** The bar's parts are prepared in the background at startup, and a page turn redraws only the strip with the thumb and the page number. Measured median for a cached page turn: about 6.0 ms on Windows and about 29 ms on macOS, with no difference among none / control bar / page slider.
+
 ### 2026.09.05.
 
 - **"Next book" and "Previous book" now work for image folders too.** The destination is the neighboring folder at the same level, sorted in the same natural order as archives ("1 / 2 / … / 10"). While an archive is open you still move only among archive files; folders and archives are never counted together. Hidden folders are skipped.
