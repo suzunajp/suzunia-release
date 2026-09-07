@@ -7,7 +7,7 @@ It is designed with **overall speed — startup and page turning above all** —
 
 It is primarily a book viewer for **zip (cbz), pdf, and epub**, but it also works as a plain viewer for individual image files such as **JPEG XL, AVIF, WebP, PNG, JPG, GIF, and more**.
 
-![suzunia-picture](suzunia2.png)
+![suzunia-picture](suzunia.png)
 
 ## Download
 

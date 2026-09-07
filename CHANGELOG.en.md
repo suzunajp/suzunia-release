@@ -4,6 +4,15 @@
 
 [Back to README](README.en.md)
 
+### 2026.09.07.
+
+- **Fixed the previous book's pixel buffers lingering in memory after opening another book** (**Windows and macOS**). Decoded page pixels are not freed when they leave the cache; they go back to a "pool" so the next prefetch can borrow them again. That pool had a fixed 3GB ceiling and nothing ever shrank it, so after switching to a book with a different page size the old book's buffers sat there unused — the info panel's "pooled" figure jumped to about 2GB the moment another book was opened (in use 2576MB + pooled 2174MB = 4750MB of process memory). Now, when the book changes, buffers of sizes the new book does not use are released together. Reuse remains, as before, only when the next book has pages of the same size.
+  - **The pixel buffer pool limit is now a setting** (`performance.poolLimitMB`, default 512MB, 0 disables pooling). The pool only has to absorb prefetch turnover, so this is enough (measured: about 96MB sat pooled while reading through one book on the high-spec preset). The "Pixel buffers" line of the info panel now shows the limit as well.
+  - **How much extracted rar / 7z data is kept at hand is also a setting now** (`performance.archiveBudgetMB`, default 512MB). It used to be hard-coded at 512MB.
+  - **The "Low / Medium / High spec" buttons on the Performance tab of the settings app now change these two together with the cache limit** (low: cache 1024 / pool 256 / archive 256MB, medium: 2048 / 512 / 512MB, high: 4096 / 1024 / 1024MB). This answers the report that "lowering the cache limit for a low-spec machine still left memory growing somewhere else": process memory now stays roughly within "cache limit + pool limit + archive buffer + a few display-sized images". The fields live in a new "Memory limits" group on the Performance tab (the macOS settings window has the same group).
+
+- Settings app (**Windows only**): added the "Default: …" hint to "Update the title bar less often to speed up page turns" and "Heavy page threshold (ms)" on the Performance tab, and fixed the "Default: …" hint of "Size" on the Float display tab sitting further left than the rows above and below it.
+
 ### 2026.09.06.
 
 - **Added the control bar along the bottom of the window** (on by default, **Windows and macOS**). One row holds, from left to right, a page **slider**, the **page number** ("12 / 196", or "12-13 / 196" in two-page view) and four buttons: **first page / previous page / next page / last page**. Click or drag the slider to jump to a page; the buttons behave exactly like the key assignments (at the ends of a book you still get the sound, the flash and the floating message, and the "at the end of the book" setting is honored). The look is a simple Material-style design; the icons and the thumb are anti-aliased.
